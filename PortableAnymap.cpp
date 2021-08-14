@@ -22,7 +22,7 @@ pnm::PortableAnymap::PortableAnymap(std::string filetype, unsigned int width, un
 {
 }
 
-bool pnm::PortableAnymap::saveAnymap(const std::string& path)
+bool pnm::PortableAnymap::saveAnymap(const std::string& path) const
 {
 	if (std::filesystem::path p(path); std::filesystem::exists(p))
 	{
@@ -51,6 +51,18 @@ bool pnm::PortableAnymap::saveAnymap(const std::string& path)
 
 	portableAnymapFile.close();
 	return true;
+}
+
+void pnm::PortableAnymap::fillAnymap(const unsigned int value)
+{
+	for (size_t i = 0; i != mMapArray.size(); ++i)
+		for (size_t j = 0; j != mMapArray[i].size(); ++j)
+			mMapArray[i][j] = value;
+}
+
+void pnm::PortableAnymap::setPixel(const unsigned int x, const unsigned int y, const unsigned int value)
+{
+	mMapArray[x][y] = value;
 }
 
 std::string pnm::PortableAnymap::createHeader() const

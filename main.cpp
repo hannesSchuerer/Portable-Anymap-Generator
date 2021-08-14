@@ -3,7 +3,10 @@
 
 int main()
 {
-	pnm::PortableAnymap p1("P1", 1000, 1000, 1);
+	pnm::PortableAnymap p1("P1", 400, 400, 1);
+
+	p1.fillAnymap(1);
+	p1.setPixel(200, 200, 0);
 
 	if (p1.saveAnymap("test.pbm"))
 	{
