@@ -2,31 +2,29 @@
 #define PORTABLE_ANYMAP
 
 #include <vector>
+#include <string>
 
 using MapArray = std::vector<std::vector<unsigned int>>;
 
 namespace pnm
 {
-	enum class Filetype : unsigned int
-	{
-		PORTABLE_BITMAP = 0,
-		PORTABLE_GRAYMAP = 1,
-		PORTABLE_PIXMAP = 2,
-		UNKNOWN_PIXMAP = 3
-	};
-
 	class PortableAnymap
 	{
 	public:
 		PortableAnymap();
-		PortableAnymap(Filetype filetype, unsigned int mWidth, unsigned int mHeight, unsigned int maxVal);
+		PortableAnymap(std::string filetype, unsigned int width, unsigned int height, unsigned int maxVal);
+
+		bool saveAnymap(const std::string& path);
 
 	private:
-		Filetype mFiletype;
+		std::string mFiletype;
 		unsigned int mWidth;
 		unsigned int mHeight;
 		unsigned int mMaxVal;
 		MapArray mMapArray;
+
+	private:
+		std::string createHeader() const;
 	};
 }
 
