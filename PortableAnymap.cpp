@@ -26,8 +26,8 @@ bool pnm::PortableAnymap::saveAnymap(const std::string& path) const
 {
 	if (std::filesystem::path p(path); std::filesystem::exists(p))
 	{
-		std::cout << "File already exists: " << path << std::endl;
-		return false;
+		// If the Anymap file exists, it will be removed and newly constructed
+		std::filesystem::remove(p);
 	}
 
 	std::ofstream portableAnymapFile(path, std::ios_base::out);
@@ -63,6 +63,16 @@ void pnm::PortableAnymap::fillAnymap(const unsigned int value)
 void pnm::PortableAnymap::setPixel(const unsigned int x, const unsigned int y, const unsigned int value)
 {
 	mMapArray[x][y] = value;
+}
+
+unsigned int pnm::PortableAnymap::getWidth() const
+{
+	return mWidth;
+}
+
+unsigned int pnm::PortableAnymap::getHeight() const
+{
+	return mHeight;
 }
 
 std::string pnm::PortableAnymap::createHeader() const

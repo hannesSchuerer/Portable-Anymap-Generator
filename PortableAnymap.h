@@ -4,6 +4,11 @@
 #include <vector>
 #include <string>
 
+/*
+* Protable Anymap class which can perform simple file transformations
+* Supported Fileformats: PBM, PGM, PPM
+*/
+
 using MapArray = std::vector<std::vector<unsigned int>>;
 
 namespace pnm
@@ -19,6 +24,9 @@ namespace pnm
 		void fillAnymap(const unsigned int value);
 		void setPixel(const unsigned int x, const unsigned int y, const unsigned int value);
 		
+		unsigned int getWidth() const;
+		unsigned int getHeight() const;
+
 	private:
 		std::string mFiletype;
 		unsigned int mWidth;
