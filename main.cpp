@@ -1,21 +1,17 @@
 #include <iostream>
 #include <math.h>
-#include "PortableAnymap.h"
+#include "Bitmap.h"
 
 int main()
 {
-	pnm::PortableAnymap p1("P2", 400, 400, 255);
+	pnm::Bitmap p1(400, 400);
 
-	p1.fillAnymap(0);
+	p1.fillBitmap(1);
+	p1.setPixel(100, 100, 0);
 
-	for (unsigned int i = 0; i < p1.getWidth(); ++i)
+	if (p1.saveBitmap("test.pbm"))
 	{
-		p1.setPixel((std::sin(i) * 5 + 200), i, 255);
-	}
-
-	if (p1.saveAnymap("test.pbm"))
-	{
-		std::cout << "Saved file successfully!" << std::endl;
+		std::cout << "Successfully saved test.pbm!" << std::endl;
 	}
 
 	return 0;

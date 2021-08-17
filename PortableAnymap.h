@@ -9,7 +9,15 @@
 * Supported Fileformats: PBM, PGM, PPM
 */
 
+struct RGB
+{
+	unsigned int r = 255;
+	unsigned int g = 255;
+	unsigned int b = 255;
+};
+
 using MapArray = std::vector<std::vector<unsigned int>>;
+using MapArrayRGB = std::vector<std::vector<RGB>>;
 
 namespace pnm
 {
@@ -19,22 +27,18 @@ namespace pnm
 		PortableAnymap();
 		PortableAnymap(std::string filetype, unsigned int width, unsigned int height, unsigned int maxVal);
 
-		bool saveAnymap(const std::string& path) const;
-
-		void fillAnymap(const unsigned int value);
-		void setPixel(const unsigned int x, const unsigned int y, const unsigned int value);
+		virtual ~PortableAnymap();
 		
 		unsigned int getWidth() const;
 		unsigned int getHeight() const;
 
-	private:
+	protected:
 		std::string mFiletype;
 		unsigned int mWidth;
 		unsigned int mHeight;
 		unsigned int mMaxVal;
-		MapArray mMapArray;
 
-	private:
+	protected:
 		std::string createHeader() const;
 	};
 }
