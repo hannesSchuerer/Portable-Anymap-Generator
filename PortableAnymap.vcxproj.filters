@@ -24,12 +24,18 @@
     <ClCompile Include="Bitmap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Graymap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PortableAnymap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Bitmap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Graymap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -4,7 +4,9 @@ pnm::PortableAnymap::PortableAnymap()
 	:mFiletype("P1"),
 	mWidth(10),
 	mHeight(10),
-	mMaxVal(1)
+	mMaxVal(1),
+	mMapArray(mWidth, std::vector<unsigned int>(mHeight, 0)),
+	mMapArrayRGB(mWidth, std::vector<RGB>(mHeight, {0, 0, 0}))
 {
 }
 
@@ -12,7 +14,9 @@ pnm::PortableAnymap::PortableAnymap(std::string filetype, unsigned int width, un
 	:mFiletype(filetype),
 	mWidth(width),
 	mHeight(height),
-	mMaxVal(maxVal)
+	mMaxVal(maxVal),
+	mMapArray(mWidth, std::vector<unsigned int>(mHeight, 0)),
+	mMapArrayRGB(mWidth, std::vector<RGB>(mHeight, { 0, 0, 0 }))
 {
 }
 

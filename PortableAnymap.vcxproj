@@ -142,11 +142,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Bitmap.cpp" />
+    <ClCompile Include="Graymap.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PortableAnymap.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bitmap.h" />
+    <ClInclude Include="Graymap.h" />
     <ClInclude Include="PortableAnymap.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

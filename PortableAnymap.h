@@ -37,6 +37,8 @@ namespace pnm
 		unsigned int mWidth;
 		unsigned int mHeight;
 		unsigned int mMaxVal;
+		MapArray mMapArray;
+		MapArrayRGB mMapArrayRGB;
 
 	protected:
 		std::string createHeader() const;

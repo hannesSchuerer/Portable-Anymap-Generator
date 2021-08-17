@@ -16,9 +16,6 @@ namespace pnm
 
 		void fillBitmap(const unsigned int value);
 		void setPixel(const unsigned int x, const unsigned int y, const unsigned int value);
-
-	private:
-		MapArray mMapArray;
 	};
 
 }
