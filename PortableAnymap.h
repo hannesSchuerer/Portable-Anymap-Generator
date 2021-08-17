@@ -3,6 +3,9 @@
 
 #include <vector>
 #include <string>
+#include <fstream>
+#include <filesystem>
+#include <iostream>
 
 /*
 * Protable Anymap class which can perform simple file transformations
@@ -16,11 +19,19 @@ struct RGB
 	unsigned int b = 255;
 };
 
-using MapArray = std::vector<std::vector<unsigned int>>;
 using MapArrayRGB = std::vector<std::vector<RGB>>;
+using MapArray = std::vector<std::vector<unsigned int>>;
 
 namespace pnm
 {
+
+	namespace color
+	{
+		constexpr RGB RED = { 255, 0, 0 };
+		constexpr RGB GREEN = { 0, 255, 0 };
+		constexpr RGB BLUE = { 0, 0, 255 };
+	}
+
 	class PortableAnymap
 	{
 	public:
@@ -29,6 +40,8 @@ namespace pnm
 
 		virtual ~PortableAnymap();
 		
+		virtual bool saveAnymap(const std::string& path) const;
+
 		unsigned int getWidth() const;
 		unsigned int getHeight() const;
 

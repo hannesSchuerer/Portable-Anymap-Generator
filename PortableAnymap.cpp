@@ -24,6 +24,37 @@ pnm::PortableAnymap::~PortableAnymap()
 {
 }
 
+bool pnm::PortableAnymap::saveAnymap(const std::string& path) const
+{
+	if (std::filesystem::path p(path); std::filesystem::exists(p))
+	{
+		// If the Anymap file exists, it will be removed and newly constructed
+		std::filesystem::remove(p);
+	}
+
+	std::ofstream portableAnymapFile(path, std::ios_base::out);
+
+	if (!portableAnymapFile.is_open())
+	{
+		std::cout << "Can't open file: " << path << std::endl;
+		return false;
+	}
+
+	portableAnymapFile << createHeader();
+
+	for (size_t i = 0; i != mMapArray.size(); ++i)
+	{
+		for (size_t j = 0; j != mMapArray[i].size(); ++j)
+		{
+			portableAnymapFile << mMapArray[i][j] << " ";
+		}
+		portableAnymapFile << '\n';
+	}
+
+	portableAnymapFile.close();
+	return true;
+}
+
 unsigned int pnm::PortableAnymap::getWidth() const
 {
 	return mWidth;

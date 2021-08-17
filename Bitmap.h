@@ -12,8 +12,6 @@ namespace pnm
 		Bitmap();
 		Bitmap(unsigned int width, unsigned int height);
 
-		bool saveBitmap(const std::string& path) const;
-
 		void fillBitmap(const unsigned int value);
 		void setPixel(const unsigned int x, const unsigned int y, const unsigned int value);
 	};

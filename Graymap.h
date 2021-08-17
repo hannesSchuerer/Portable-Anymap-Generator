@@ -11,8 +11,6 @@ namespace pnm
 		Graymap();
 		Graymap(unsigned int width, unsigned int height, unsigned int maxVal);
 
-		bool saveGraymap(const std::string& path) const;
-
 		void fillGraymap(const unsigned int value);
 		void setPixel(const unsigned int x, const unsigned int y, const unsigned int value);
 	};
